@@ -1,16 +1,14 @@
 
 
-function registrarEventosMenu() {
+export function registrarEventosMenu(funcion) {
 
     document.querySelectorAll("[data-vista]").forEach(boton => {
         
         boton.addEventListener("click", () => {
 
-            cargarVista(boton.dataset.vista);
+            funcion(boton.dataset.vista);
 
         });
-
-
     });
 
 }

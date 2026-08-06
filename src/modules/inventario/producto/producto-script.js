@@ -1,23 +1,35 @@
 import * as productoClient from "./producto-client.js";
 
 /**
- * ELEMENTOS DEL DOM
+ * Variables
  */
-const botonBuscar = document.getElementById("btn-buscar");
-const inputBuscar = document.getElementById("input-buscar");
-const tbody = document.getElementById("tabla-productos");
+let botonBuscar;
+let inputBuscar;
+let tbody;
 
 
 /**
  * INICIALIZACIÓN
  */
-document.addEventListener("DOMContentLoaded", async () => {
 
+
+//Metodo que inicializa todo
+export async function init() {
+
+    
+    await obtenerElemtosDelDOM();
     registrarEventos();
     await cargarProductos();
 
-});
+}
 
+//Obtener elementos del DOM
+async function obtenerElemtosDelDOM() {
+    botonBuscar = document.getElementById("btn-buscar");
+    inputBuscar = document.getElementById("input-buscar");
+    tbody = document.getElementById("tabla-productos");
+    
+}
 
 
 /**

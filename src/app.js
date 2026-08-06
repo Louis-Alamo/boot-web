@@ -1,4 +1,6 @@
-import { ROUTES } from "./core/paths";
+import { ROUTES } from "./core/paths.js";
+import { registrarEventosMenu } from "./components/header/header.js"
+import { init as initProductos} from "./modules/inventario/producto/producto-script.js";
 
 
 
@@ -8,7 +10,8 @@ import { ROUTES } from "./core/paths";
  */
 
 
-const contenido = document.getElementById("contenido-principal");
+const contenidoBase = document.getElementById("contenido-base");
+const contenidoPrincipal = document.getElementById("contenido-principal");
 
 
 
@@ -21,8 +24,52 @@ async function inicializarApp() {
  * @param {string} destino: se le pasa para indicar cual es la proxima vista a cargar.
  *
  */
-function cargarVista (destino) {
+async function cargarVista (destino) {
+    console.log(`Boton vista ${destino}`);
+    
+    switch (destino) {
 
+        case "inventario":
+            await cargarVistaProductos(ROUTES.VIEW.PRODUCTOS);
+            break;
+        
+        case "proveedores":
+            await cargarVistaProveedores(ROUTES.VIEW.PROVEEDOR);
+            break;
+
+
+    }
+
+
+
+}
+
+/**
+ * Carga vistas
+ */
+
+
+
+
+async function cargarVistaProductos(ruta) {
+
+    console.log("Cargando HTML");
+
+    contenidoPrincipal.innerHTML = "";
+
+    contenidoPrincipal.innerHTML = await obtenerContenidoHtml(ruta);
+    console.log(document.getElementById("input-buscar"));
+    console.log("HTML cargado");
+
+
+    await initProductos();
+}
+
+async function cargarVistaProveedores(ruta) {
+
+    contenidoPrincipal.innerHTML = await obtenerContenidoHtml(ruta);
+
+    
 }
 
 
@@ -37,9 +84,11 @@ async function cargarPaginaInicial() {
 
     const headerHtml = await obtenerContenidoHtml(ROUTES.COMPONENT.HEADER);
 
-    contenido.innerHTML += headerHtml;
-
     //Contenido proximo
+
+    //Cargamos la pagina
+    contenidoBase.innerHTML = headerHtml;
+    await registrarEventosMenu(cargarVista);
 
 }
 
