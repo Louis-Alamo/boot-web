@@ -106,3 +106,21 @@
     background-color: var(--color-primary-hover);
 
 }
+
+
+.btn-dialog {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border: none;
+    border-radius: var(--radius-sm);
+}
+
+
+.btn-aceptar {
+
+    background-color: var(--color-success);
+    color: white;
+}
+
+.btn-cancelar {
+
+}
