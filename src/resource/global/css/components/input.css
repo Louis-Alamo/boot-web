@@ -1,0 +1,20 @@
+.input {
+
+    flex: 1;
+
+    padding: 10px 14px;
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+
+    outline: none;
+
+    font-size: 14px;
+
+}
+
+.input:focus {
+
+    border-color: var(--color-primary);
+
+}

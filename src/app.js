@@ -1,6 +1,6 @@
 import { ROUTES } from "./core/paths.js";
-import { registrarEventosMenu } from "./components/header/header.js"
-import { init as initProductos} from "./modules/inventario/producto/producto-script.js";
+import { registrarEventosMenu } from "./components/header/header.js";
+import { init as initProductos } from "./modules/inventario/producto/producto-script.js";
 
 
 
@@ -10,7 +10,7 @@ import { init as initProductos} from "./modules/inventario/producto/producto-scr
  */
 
 
-const contenidoBase = document.getElementById("contenido-base");
+const header = document.getElementById("header");
 const contenidoPrincipal = document.getElementById("contenido-principal");
 
 
@@ -87,7 +87,7 @@ async function cargarPaginaInicial() {
     //Contenido proximo
 
     //Cargamos la pagina
-    contenidoBase.innerHTML = headerHtml;
+    header.innerHTML = headerHtml;
     await registrarEventosMenu(cargarVista);
 
 }
