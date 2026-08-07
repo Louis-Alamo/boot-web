@@ -17,6 +17,7 @@ const contenidoPrincipal = document.getElementById("contenido-principal");
 
 async function inicializarApp() {
     await cargarPaginaInicial();
+    await cargarVista("inventario"); //Solo desarrollo de la vista no mas
 }
 
 /**

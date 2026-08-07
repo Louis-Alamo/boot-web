@@ -6,3 +6,12 @@
     margin-bottom: var(--spacing-lg);
 
 }
+
+.icon {
+
+    width: 16px;
+    height: 16px;
+
+    fill: currentColor;
+
+}

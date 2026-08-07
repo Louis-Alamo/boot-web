@@ -1,4 +1,5 @@
 import * as productoClient from "./producto-client.js";
+import { getIcon } from "../../../core/icons.js";
 
 /**
  * Variables
@@ -125,6 +126,28 @@ function crearFilaProducto(producto) {
             <td>${producto.stockInicial}</td>
             <td>${producto.categoria.nombre}</td>
             <td>${producto.proveedor.nombre}</td>
+            <td>
+                <div class="acciones">
+                    <button
+                        class="btn-icon btn-icon-editar"
+                        data-action="editar"
+                        data-id="${producto.id}">
+
+                        ${getIcon("EDIT")}
+
+                    </button>
+
+                    <button
+                        class="btn-icon btn-icon-eliminar"
+                        data-action="eliminar"
+                        data-id="${producto.id}">
+
+                        ${getIcon("DELETE")}
+
+                    </button>
+                </div>
+            </td>
+
         </tr>
     `;
 
